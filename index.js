@@ -11,6 +11,7 @@ const User = require("./Models/user");
 const connectDb = require("./config/db");
 connectDb();
 
+//middleware
 app.use(cors());
 app.use(express.json());
 
