@@ -6,7 +6,7 @@ try {
         useNewUrlParser : true,
         useUnifiedTopology: true
     });
-    console.log("Connected..");
+    console.log("MongoDB connected SUCCESS..");
 } catch (error) {
     console.error("Mongo DB Connect Fail");
     process.exit(1);
