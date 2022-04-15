@@ -7,7 +7,7 @@ const userSchema = new Schema({
   },
   email: {
     type: String,
-  },
+  }
 });
 
 module.exports = mongoose.model("user", userSchema);
