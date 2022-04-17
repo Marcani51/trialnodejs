@@ -12,14 +12,18 @@ const userSchema = new Schema({
     type:String
   },
   token:{
-    Type:String,
+    type:String,
   },
   date:{
     type:Date,
     default:Date.now,
   },
   userId:{
-    Type:Number
+    type:Number
+  },
+  userType:{
+    type:Schema.Types.ObjectId,
+    ref:"usertype"
   }
 });
 
