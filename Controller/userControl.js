@@ -1,3 +1,4 @@
+const res = require("express/lib/response");
 const User = require("../Models/user");
 
 const getUser = async (req,res) =>{
@@ -10,9 +11,9 @@ const getUser = async (req,res) =>{
     }
 };
 
-const  addUser  = async(res,req)=>{
+const  addUser  = async(req,res)=>{
     try {
-        const user = new User({
+        const user = await User({
             userName: req.body.userName,
             email: req.body.email,
             password: req.body.password,
@@ -29,4 +30,14 @@ const  addUser  = async(res,req)=>{
     }
 }
 
-module.exports={getUser, addUser};
+const deleteUser = async(req,res)=>{
+    try {
+        const user  = await User.findByIdAndDelete(req.params.id);
+        res.json(user);
+    } catch (error) {
+        console.error(error.message);
+        res.status(500).send("server error");
+    }
+}
+
+module.exports={getUser, addUser,deleteUser};
